@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_assignment
 {
-    class Bank
+    class CheckingAccount
     {
-
-
     }
 }
