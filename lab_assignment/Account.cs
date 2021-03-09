@@ -56,10 +56,10 @@ namespace lab_assignment
             return 0;
         }
 
-        public void PrintDateOfBirth()
+        public void PrintDOB()
         {
             
-            Console.Write("Your Date of Birth is: ");
+            Console.Write("Your Date of Birth : ");
             Console.Write(date);
             Console.Write("/");
             Console.Write(month);

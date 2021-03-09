@@ -16,13 +16,21 @@ namespace lab_assignment
 
 
 
+
         public Bank(string bankName, int size)
         {
             this.bankName = bankName;
-            this.myBank = new Account[size];
             this.saving = new SavingAccount[size];
             this.checking = new CheckingAccount[size];
+            this.myBank = new Account[size];
         }
+
+
+        public Account[] MyBank
+        {
+            get { return this.myBank; }
+        }
+
 
         public string BankName
         {
@@ -30,21 +38,32 @@ namespace lab_assignment
             get { return this.bankName; }
         }
 
-        public Account[] MyBank
-        {
-            get { return this.myBank; }
-        }
-
+       
         public void AddAccount(SavingAccount account)
         {
-            for (int i = 0; i < myBank.Length; i++)
+            for (int i = 0; i < saving.Length; i++)
             {
                 if (saving[i] == null)
                 {
-                    Address s1 = new Address();
+                   
                     saving[i] = account;
                     Console.WriteLine("Enter Account Name: \n");
                     saving[i].AccountName = Console.ReadLine();
+
+                    Console.WriteLine("------Address------ \n");
+
+                    Console.WriteLine("Enter Road No.: ");
+                    account.Address.RoadNo = Console.ReadLine();
+
+                    Console.WriteLine("Enter Hourse No.: ");
+                    account.Address.HouseNo = Console.ReadLine();
+
+                    Console.WriteLine("Enter City: ");
+                    account.Address.City = Console.ReadLine();
+
+                    Console.WriteLine("Enter Country : ");
+                    account.Address.Country = Console.ReadLine();
+
 
                     Console.WriteLine("Enter your Birth Date: ");
                     saving[i].Date = Convert.ToInt32(Console.ReadLine());
@@ -55,24 +74,12 @@ namespace lab_assignment
                     Console.WriteLine("Enter your Birth Year: ");
                     saving[i].Year = Convert.ToInt32(Console.ReadLine());
 
-                    saving[i].PrintDateOfBirth();
-
-                    Console.WriteLine("Enter Your Address: \n");
-
-                    Console.WriteLine("   Enter Your Hourse No.: ");
-                    account.Address.HouseNo = Console.ReadLine();
-
-                    Console.WriteLine("   Enter Your Road No.: ");
-                    account.Address.RoadNo = Console.ReadLine();
-
-                    Console.WriteLine("   Enter Your City: ");
-                    account.Address.City = Console.ReadLine();
-
-                    Console.WriteLine("   Enter Your Country No.: ");
-                    account.Address.Country = Console.ReadLine();
+                    saving[i].PrintDOB();
 
                     int a = saving[i].PrintACN();
                     Console.WriteLine(a);
+                    Console.WriteLine("......Note The Account Number for Future Transaction.....");
+
                     break;
                 }
             }
@@ -89,65 +96,134 @@ namespace lab_assignment
                     Console.WriteLine("Enter Account Name: \n");
                     checking[i].AccountName = Console.ReadLine();
 
-                    Console.WriteLine("Enter your Birth Date: ");
-                    checking[i].Date = Convert.ToInt32(Console.ReadLine());
 
-                    Console.WriteLine("Enter your Birth Month: ");
-                    checking[i].Month = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("----------- Address----------- \n");
 
-                    Console.WriteLine("Enter your Birth Year: ");
-                    checking[i].Year = Convert.ToInt32(Console.ReadLine());
-
-                    checking[i].PrintDateOfBirth();
-
-                    Console.WriteLine("Enter Your Address: \n");
-
-                    Console.WriteLine("   Enter Your Hourse No.: ");
+                    Console.WriteLine("   Enter Hourse No.: ");
                     account.Address.HouseNo = Console.ReadLine();
 
-                    Console.WriteLine("   Enter Your Road No.: ");
+                    Console.WriteLine("   Enter Road No.: ");
                     account.Address.RoadNo = Console.ReadLine();
 
-                    Console.WriteLine("   Enter Your City: ");
+                    Console.WriteLine("   Enter City: ");
                     account.Address.City = Console.ReadLine();
 
-                    Console.WriteLine("   Enter Your Country No.: ");
+                    Console.WriteLine("   Enter Country No.: ");
                     account.Address.Country = Console.ReadLine();
+
+                    Console.WriteLine("Enter Birth Date: ");
+                    checking[i].Date = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("Enter Birth Month: ");
+                    checking[i].Month = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("Enter Birth Year: ");
+                    checking[i].Year = Convert.ToInt32(Console.ReadLine());
+
+                    checking[i].PrintDOB();
 
                     int x = checking[i].PrintACN();
                     Console.WriteLine(x);
+                    Console.WriteLine("......Note The Account Number for Future Transaction.....");
                     break;
                 }
             }
         }
 
-        public void Deleteccount(int accountNumber)
-        {
-            for (int i = 0; i < myBank.Length; i++)
-            {
-                if (myBank[i] == null)
-                {
-                    continue;
-                }
-                else if (myBank[i].AccountNumber == accountNumber)
-                {
-                    myBank[i] = null;
-                    Console.WriteLine("Congratulations!!! Your Account is successfully Deleted\n");
-
-                    for (int j = i; j < myBank.Length - 1; j++)
-                    {
-                        myBank[j] = myBank[j + 1];
-                    }
-                }
-            }
-        }
-
-
         public void Transaction(int s, params int[] ab)
-        {
+         {
             Account a2 = new Account();
 
-            if (s == 2)  //withdraw
+            if (s == 1)
+            {
+
+                //Console.WriteLine("Enter Your Account Number to Deposit");
+                //int accountNum = Convert.ToInt32(Console.ReadLine());
+
+
+                Console.WriteLine("Enter Your Account Number to Deposit");
+                int accountNum = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Your Account Type: (Enter 1 or 2)");
+                Console.WriteLine("1. Saving Account\n2. Checking Account");
+
+                int actype = Convert.ToInt32(Console.ReadLine());
+                if (actype == 1)
+                {
+                    for (int i = 0; i < saving.Length; i++)
+                    {
+                        if (accountNum == saving[i].AccountNumber)
+                        {
+                            int flag = 0;
+                            for (i = 0; i < saving.Length; i++)
+                            {
+                                if (saving[i] == null)
+                                {
+                                    continue;
+                                }
+                                else if (saving[i].AccountNumber == accountNum)
+                                {
+                                    Console.WriteLine("Enter The Amount You want to Deposit: ");
+                                    double x = Convert.ToDouble(Console.ReadLine());
+                                    saving[i].Deposit(x);
+                                    saving[i].count++;
+                                    Console.WriteLine("Deposited");
+                                    flag = 0;
+                                    //break;
+                                }
+
+                                else
+                                {
+                                    Console.WriteLine("Account Not Found");
+                                    flag = 1;
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+
+                else if (actype == 2)
+                {
+                    for (int i = 0; i < checking.Length; i++)
+                    {
+                        if (accountNum == checking[i].AccountNumber)
+                        {
+                            int flag = 0;
+                            for (i = 0; i < checking.Length; i++)
+                            {
+                                if (checking[i] == null)
+                                {
+                                    continue;
+                                }
+                                else if (checking[i].AccountNumber == accountNum)
+                                {
+                                    Console.WriteLine("Enter The Amount You want to Deposit: ");
+                                    double x = Convert.ToDouble(Console.ReadLine());
+                                    checking[i].Deposit(x);
+                                    checking[i].count++;
+                                    Console.WriteLine("Deposited");
+                                    flag = 0;
+                                    
+                                }
+
+                                else
+                                {
+                                    Console.WriteLine("Account Not Found");
+                                    flag = 1;
+                                }
+
+                            }
+
+                        }
+
+
+                    }
+                    
+                }
+            }
+
+            else if (s == 2)  
             {
 
 
@@ -231,101 +307,7 @@ namespace lab_assignment
             }
 
 
-            else if (s == 1)  
-            {
-
-                
-                Console.WriteLine("Enter Your Account Number to Deposit");
-                int accountNum = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Your Account Type: (Enter 1 or 2)");
-                Console.WriteLine("1. Saving Account\n2. Checking Account");
-
-                int actype = Convert.ToInt32(Console.ReadLine());
-                if (actype == 1)
-                {
-                    for (int i = 0; i < saving.Length; i++)
-                    {
-                        if (accountNum == saving[i].AccountNumber)
-                        {
-                            int flag = 0;
-                            for (i = 0; i < saving.Length; i++)
-                            {
-                                if (saving[i] == null)
-                                {
-                                    continue;
-                                }
-                                else if (saving[i].AccountNumber == accountNum)
-                                {
-                                    Console.WriteLine("Enter The Amount You want to Deposit: ");
-                                    double x = Convert.ToDouble(Console.ReadLine());
-                                    saving[i].Deposit(x);
-                                    saving[i].count++;
-                                    Console.WriteLine("Deposited");
-                                    flag = 0;
-                                    //break;
-                                }
-
-                                else
-                                {
-                                    Console.WriteLine("Account Not Found");
-                                    flag = 1;
-                                }
-
-                            }
-
-                        }
-                    }
-                }
-
-                else if (actype == 2)
-                {
-                    for (int i = 0; i < checking.Length; i++)
-                    {
-                        if (accountNum == checking[i].AccountNumber)
-                        {
-                            int flag = 0;
-                            for (i = 0; i < checking.Length; i++)
-                            {
-                                if (checking[i] == null)
-                                {
-                                    continue;
-                                }
-                                else if (checking[i].AccountNumber == accountNum)
-                                {
-                                    Console.WriteLine("Enter The Amount You want to Deposit: ");
-                                    double x = Convert.ToDouble(Console.ReadLine());
-                                    checking[i].Deposit(x);
-                                    checking[i].count++;
-                                    Console.WriteLine("Deposited");
-                                    flag = 0;
-                                    //break;
-                                }
-
-                                else
-                                {
-                                    Console.WriteLine("Account Not Found");
-                                    flag = 1;
-                                }
-
-                            }
-
-                        }
-
-
-                    }
-                    //break;
-
-
-                    //for (int i = 0; i <= checking.Length; i++)
-                    //{
-
-                    //break;
-                    //}
-
-                }
-            }
-
-            else if (s == 3)
+           else if (s == 3)
             {
 
 
