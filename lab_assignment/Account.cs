@@ -25,15 +25,10 @@ namespace lab_assignment
         { }
 
         public Account(Address address)
-        {
-
-            this.address = address;
-        }
+        {  this.address = address;  }
+        
         public int AccountNumber
-        {
-
-            get { return this.accountNumber; }
-        }
+        {  get { return this.accountNumber; } }
 
         public int Date
         {
@@ -53,7 +48,7 @@ namespace lab_assignment
             get { return this.year; }
         }
 
-        public int PrintAccountNumber()
+        public int PrintACN()
         {
             accountNumber = acn;
             Console.WriteLine("Your Account No :  " + accountNumber + "\n");

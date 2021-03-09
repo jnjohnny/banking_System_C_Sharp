@@ -10,7 +10,110 @@ namespace lab_assignment
     {
         static void Main(string[] args)
         {
+            Bank ourBank = new Bank("Developer Bank", 50);
+            Console.WriteLine("Welcome to the " + ourBank.BankName);
 
+           bool test = true;
+
+            while (test)
+            {
+
+                ourBank.Operation();
+
+                string test1 = Console.ReadLine();
+
+                switch (test1)
+                {
+                    case "open":
+                        bool bcg = true;
+                        while (bcg)
+                        {
+                            ourBank.BankCategory();
+                            string btg = Console.ReadLine();
+
+                            switch (btg)
+                            {
+                                case "savings":
+                                    SavingAccount a1 = new SavingAccount(new Address());
+                                    ourBank.AddAccount(a1);
+                                    break;
+
+                                case "checking":
+                                    CheckingAccount a2 = new CheckingAccount(new Address());
+                                    ourBank.AddAccount(a2);
+                                    break;
+
+                                case "quit":
+                                    bcg = false;
+                                    break;
+
+
+                            }
+                        }
+                        // Account a2 = new Account(new Address());
+                        //SavingsAc a1 = new SavingsAc(new Address());
+                        //ourBank.AddAccount(a1);
+                        break;
+
+                    case "account":
+
+                        bool test3 = true;
+                        while (test3)
+                        {
+                            ourBank.Operations();
+                            string test4 = Console.ReadLine();
+
+                            //mawa = false;
+                            switch (test4)
+                            {
+
+                                case "deposit":
+                                    {
+                                        ourBank.Transaction(1);
+
+                                        break;
+                                    }
+
+
+                                case "withdraw":
+                                    {
+                                        ourBank.Transaction(2);
+                                        break;
+                                    }
+                                case "transfer":
+                                    {
+                                        ourBank.Transaction(3);
+                                        break;
+                                    }
+
+                                case "show":
+                                    ourBank.PrintAllAccount();
+                                    break;
+
+                                case "change":
+                                    {
+                                        Account a2 = new Account(new Address());
+
+                                        //ourBank.AddAccount(2)
+                                        ourBank.AddAccount(2, a2);
+                                        break;
+                                    }
+                                case "quit":
+                                    test3 = false;
+                                    break;
+
+                            }
+
+
+                        }
+                        break;
+
+
+                    case "quit":
+                        test = false;
+                        break;
+                }
+            }
         }
     }
 }
