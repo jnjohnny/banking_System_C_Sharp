@@ -11,14 +11,14 @@ namespace lab_assignment
         static void Main(string[] args)
         {
             Bank ourBank = new Bank("Developer Bank", 50);
-            Console.WriteLine("Welcome to the " + ourBank.BankName);
+            Console.WriteLine("Welcome to " + ourBank.BankName);
 
            bool test = true;
 
             while (test)
             {
 
-                ourBank.Operation();
+                ourBank.Intro();
 
                 string test1 = Console.ReadLine();
 
@@ -28,7 +28,7 @@ namespace lab_assignment
                         bool bcg = true;
                         while (bcg)
                         {
-                            ourBank.BankCategory();
+                            ourBank.IntroThree();
                             string btg = Console.ReadLine();
 
                             switch (btg)
@@ -60,7 +60,7 @@ namespace lab_assignment
                         bool test3 = true;
                         while (test3)
                         {
-                            ourBank.Operations();
+                            ourBank.IntroTwo();
                             string test4 = Console.ReadLine();
 
                             //mawa = false;

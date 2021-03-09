@@ -585,7 +585,7 @@ namespace lab_assignment
                 }
             }
         }
-        public void Operations()
+        public void IntroTwo()
         {
             Console.WriteLine("Choose Service from the Below Option");
             Console.WriteLine("Make a deposit");
@@ -603,7 +603,7 @@ namespace lab_assignment
 
         }
 
-        public void Operation()
+        public void Intro()
         {
             Console.WriteLine("Choose Service from the Below Option");
             Console.WriteLine("1. Open A Bank Account");
@@ -680,7 +680,7 @@ namespace lab_assignment
 
 
 
-        public void BankCategory()
+        public void IntroThree()
         {
             Console.WriteLine("Choose Service from the Below Option");
             Console.WriteLine("1. Open A Savings Account");
