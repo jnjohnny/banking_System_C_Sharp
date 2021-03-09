@@ -137,8 +137,6 @@ namespace lab_assignment
             if (s == 1)
             {
 
-                //Console.WriteLine("Enter Your Account Number to Deposit");
-                //int accountNum = Convert.ToInt32(Console.ReadLine());
 
 
                 Console.WriteLine("Enter Your Account Number to Deposit");
@@ -168,7 +166,7 @@ namespace lab_assignment
                                     saving[i].count++;
                                     Console.WriteLine("Deposited");
                                     flag = 0;
-                                    //break;
+                                   
                                 }
 
                                 else
