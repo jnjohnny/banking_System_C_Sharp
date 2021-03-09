@@ -15,11 +15,6 @@ namespace lab_assignment
 
             public Address()
             {
-                //this.houseNo = houseNo;
-                //this.roadNo = roadNo;
-                //this.city = city;
-                //this.country = country;
-
             }
 
 
