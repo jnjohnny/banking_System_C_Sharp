@@ -345,9 +345,9 @@ namespace lab_assignment
                                         saving[i].Withdraw(x);
                                         saving[j].Deposit(x);
                                         saving[i].count++;
-                                        Console.WriteLine("Deposited");
+                                        Console.WriteLine("Transferred");
                                         flag = 0;
-                                        //break;
+                                        
                                     }
                                     else
                                     {
@@ -357,8 +357,7 @@ namespace lab_assignment
 
                             }
 
-                            //break;
-                        }
+                          }
                     }
 
                 }
@@ -377,9 +376,6 @@ namespace lab_assignment
                             Console.WriteLine("Enter The Account Number Where you want to Transfer");
                             int accountTNum = Convert.ToInt32(Console.ReadLine());
 
-
-                            //if (accountNum == saving[i].AccountNumber || accountTNum == saving[j].AccountNumber)
-                            //{
                             int flag = 0;
                             for (i = 0; i < saving.Length; i++)
                             {
@@ -532,10 +528,11 @@ namespace lab_assignment
 
         public void PrintAllAccount()
         {
-            Console.WriteLine("Enter Your Account Type: (Enter 1 or 2)");
+            Console.WriteLine("Your Account Type : ");
             Console.WriteLine("1. Saving Account\n2. Checking Account");
-            int actype = Convert.ToInt32(Console.ReadLine());
-            if (actype == 1)
+            Console.WriteLine("Note : Type saving or checking ");
+            string type = Console.ReadLine();
+            if (type == "saving")
             {
                 for (int i = 0; i < saving.Length; i++)
                 {
@@ -549,7 +546,7 @@ namespace lab_assignment
                 }
             }
 
-            else if (actype == 2)
+            else if (type == "checking")
             {
 
                 for (int i = 0; i < checking.Length; i++)
@@ -587,7 +584,7 @@ namespace lab_assignment
 
         public void Intro()
         {
-            Console.WriteLine("Choose Service from the Below Option");
+            Console.WriteLine("Choose Below Option");
             Console.WriteLine("Open A Bank Account");
             Console.WriteLine("Perform Transaction for an Account");
             Console.WriteLine("Exit the application ");
@@ -601,10 +598,11 @@ namespace lab_assignment
 
         public void AddAccount(int a, Account account)
         {
-            Console.WriteLine("Enter Your Account Type: (Enter 1 or 2)");
-            Console.WriteLine("1. Saving Account\n2. Checking Account");
-            int actype = Convert.ToInt32(Console.ReadLine());
-            if (actype == 1)
+            Console.WriteLine("Your Account Type : ");
+            Console.WriteLine("Saving Account\nChecking Account");
+            Console.WriteLine("Note : Type saving or checking ");
+            string type = Console.ReadLine();
+            if (type == "saving")
             {
                 for (int i = 0; i < saving.Length; i++)
                 {
@@ -630,7 +628,7 @@ namespace lab_assignment
                 }
             }
 
-            else if (actype == 2)
+            else if (type == "checking")
             {
                 for (int i = 0; i < checking.Length; i++)
                 {
@@ -664,10 +662,10 @@ namespace lab_assignment
 
         public void IntroThree()
         {
-            Console.WriteLine("Choose Service from the Below Option");
-            Console.WriteLine("1. Open A Savings Account");
-            Console.WriteLine("2. Open A Checking Account");
-            Console.WriteLine("3. Exit the application ");
+            Console.WriteLine("Choose Below Option");
+            Console.WriteLine("Open A Savings Account");
+            Console.WriteLine("Open A Checking Account");
+            Console.WriteLine("Exit the application ");
             Console.WriteLine("\n");
             Console.WriteLine("Type savings to create a Savings Account, Type checking to create a Checking Account, Type quit to Exit from the System");
 
