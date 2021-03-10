@@ -322,14 +322,12 @@ namespace lab_assignment
                         for (int j = 0; j < saving.Length; j++)
                         {
                             Console.WriteLine("Enter Your Account Number");
-                            int accountNum = Convert.ToInt32(Console.ReadLine());
+                            int accountN = Convert.ToInt32(Console.ReadLine());
 
                             Console.WriteLine("Enter The Account Number Where money will be Transferred");
-                            int accountTNum = Convert.ToInt32(Console.ReadLine());
+                            int accountNT = Convert.ToInt32(Console.ReadLine());
 
 
-                            //if (accountNum == saving[i].AccountNumber || accountTNum == saving[j].AccountNumber)
-                            //{
                             int flag = 0;
                             for (i = 0; i < saving.Length; i++)
                             {
@@ -339,7 +337,7 @@ namespace lab_assignment
                                         continue;
                                     }
 
-                                    else if (saving[i].AccountNumber == accountNum && saving[j].AccountNumber == accountTNum)
+                                    else if (saving[i].AccountNumber == accountN && saving[j].AccountNumber == accountNT)
                                     {
                                         Console.WriteLine("Enter The Amount You want to Deposit: ");
 
@@ -393,14 +391,14 @@ namespace lab_assignment
 
                                     else if (saving[i].AccountNumber == accountNum && checking[j].AccountNumber == accountTNum)
                                     {
-                                        Console.WriteLine("Enter The Amount You want to Deposit: ");
+                                        Console.WriteLine("Enter Amount : ");
 
                                         double x = Convert.ToDouble(Console.ReadLine());
                                         saving[i].Withdraw(x);
                                         checking[j].Deposit(x);
                                         saving[i].count++;
                                         checking[j].count++;
-                                        Console.WriteLine("Deposited");
+                                        Console.WriteLine("*********Amount Transferred*********");
                                         flag = 0;
                                         //break;
                                     }
@@ -411,15 +409,6 @@ namespace lab_assignment
                                     }
 
                             }
-                            if (flag == 1)
-                            {
-                                Console.WriteLine("Account not found");
-                                // Console.WriteLine("Exit the System & Try Again");
-                            }
-                            // }
-
-
-                            //break;
                         }
                     }
 
@@ -442,8 +431,6 @@ namespace lab_assignment
                             int accountTNum = Convert.ToInt32(Console.ReadLine());
 
 
-                            //if (accountNum == saving[i].AccountNumber || accountTNum == saving[j].AccountNumber)
-                            //{
                             int flag = 0;
                             for (i = 0; i < checking.Length; i++)
                             {
@@ -464,8 +451,7 @@ namespace lab_assignment
                                         saving[j].count++;
                                         Console.WriteLine("Balance Transfered...");
                                         flag = 0;
-                                        //break;
-                                    }
+                                     }
                                     else
                                     {
                                         Console.WriteLine("Account Not Found");
@@ -476,12 +462,8 @@ namespace lab_assignment
                             if (flag == 1)
                             {
                                 Console.WriteLine("Account not found");
-                                // Console.WriteLine("Exit the System & Try Again");
                             }
-                            // }
-
-
-                            //break;
+                           
                         }
                     }
 
@@ -501,8 +483,7 @@ namespace lab_assignment
                             int accountTNum = Convert.ToInt32(Console.ReadLine());
 
 
-                            //if (accountNum == saving[i].AccountNumber || accountTNum == saving[j].AccountNumber)
-                            //{
+                           
                             int flag = 0;
                             for (i = 0; i < checking.Length; i++)
                             {
@@ -525,7 +506,7 @@ namespace lab_assignment
                                         checking[j].count++;
                                         Console.WriteLine("Balance Transfered...");
                                         flag = 0;
-                                        //break;
+                                        
                                     }
                                     else
                                     {
@@ -534,7 +515,7 @@ namespace lab_assignment
                                     }
 
                             }
-                            //break;
+                           
                         }
                     }
 
@@ -564,7 +545,7 @@ namespace lab_assignment
                     }
                     saving[i].ShowAccountInformation();
                     saving[i].PrintACN();
-                    Console.WriteLine("Number of Transaction: " + saving[i].count);
+                    Console.WriteLine("Number of Transaction in Your Account : " + saving[i].count);
                 }
             }
 
@@ -579,7 +560,7 @@ namespace lab_assignment
                     }
                     checking[i].ShowAccountInformation();
                     checking[i].PrintACN();
-                    Console.WriteLine("Number of Transaction: " + checking[i].count);
+                    Console.WriteLine("Number of Transaction in your Account : " + checking[i].count);
 
 
                 }
@@ -595,6 +576,7 @@ namespace lab_assignment
             Console.WriteLine("Change User Name");
             Console.WriteLine("Exit the application");
             Console.WriteLine("\n");
+            Console.WriteLine("\n");
             Console.WriteLine("Type 'deposit' to deposit amount, Type 'withdraw' to withdraw amount,Type 'transfer' to transfer amount,Type 'show' to Show the Number of Transaction & Balance,Type change to Change the User Name, Type quit to Exit from the System");
 
 
@@ -606,9 +588,9 @@ namespace lab_assignment
         public void Intro()
         {
             Console.WriteLine("Choose Service from the Below Option");
-            Console.WriteLine("1. Open A Bank Account");
-            Console.WriteLine("2. Perform Transaction for an Account");
-            Console.WriteLine("3. Exit the application ");
+            Console.WriteLine("Open A Bank Account");
+            Console.WriteLine("Perform Transaction for an Account");
+            Console.WriteLine("Exit the application ");
             Console.WriteLine("\n");
             Console.WriteLine("Type open to create an Account, Type account to perform Operation on Account, Type quit to Exit from the System");
 
@@ -626,13 +608,13 @@ namespace lab_assignment
             {
                 for (int i = 0; i < saving.Length; i++)
                 {
-                    Console.WriteLine("Enter the Account Number you want to Modify");
+                    Console.WriteLine("Enter the Account Number you want to Chnage Name");
                     int accountnumber = Convert.ToInt32(Console.ReadLine());
 
                     if (saving[i].AccountNumber == accountnumber)
                     {
-                        Console.WriteLine("Your User Name is" + saving[i].AccountName);
-                        Console.WriteLine("Enter the New User Name ");
+                        Console.WriteLine("User Name    " + saving[i].AccountName);
+                        Console.WriteLine("Enter New User Name   ");
                         string changeName = Console.ReadLine();
                         saving[i].AccountName = changeName;
 
@@ -652,13 +634,13 @@ namespace lab_assignment
             {
                 for (int i = 0; i < checking.Length; i++)
                 {
-                    Console.WriteLine("Enter the Account Number you want to Modify");
+                    Console.WriteLine("Enter the Account Number you want to Change Name ");
                     int accountnumber = Convert.ToInt32(Console.ReadLine());
 
                     if (checking[i].AccountNumber == accountnumber)
                     {
-                        Console.WriteLine("Your User Name is" + checking[i].AccountName);
-                        Console.WriteLine("Enter the New User Name ");
+                        Console.WriteLine("User Name  " + checking[i].AccountName);
+                        Console.WriteLine("Enter New User Name ");
                         string changeName = Console.ReadLine();
                         checking[i].AccountName = changeName;
 

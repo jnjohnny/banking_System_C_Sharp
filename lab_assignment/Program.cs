@@ -25,13 +25,13 @@ namespace lab_assignment
                 switch (test1)
                 {
                     case "open":
-                        bool bcg = true;
-                        while (bcg)
+                        bool ab = true;
+                        while (ab)
                         {
                             ourBank.IntroThree();
-                            string btg = Console.ReadLine();
+                            string bc = Console.ReadLine();
 
-                            switch (btg)
+                            switch (bc)
                             {
                                 case "savings":
                                     SavingAccount a1 = new SavingAccount(new Address());
@@ -44,16 +44,13 @@ namespace lab_assignment
                                     break;
 
                                 case "quit":
-                                    bcg = false;
+                                    ab = false;
                                     break;
 
 
                             }
                         }
-                        // Account a2 = new Account(new Address());
-                        //SavingsAc a1 = new SavingsAc(new Address());
-                        //ourBank.AddAccount(a1);
-                        break;
+                       break;
 
                     case "account":
 
@@ -63,7 +60,7 @@ namespace lab_assignment
                             ourBank.IntroTwo();
                             string test4 = Console.ReadLine();
 
-                            //mawa = false;
+                           
                             switch (test4)
                             {
 
@@ -93,22 +90,17 @@ namespace lab_assignment
                                 case "change":
                                     {
                                         Account a2 = new Account(new Address());
-
-                                        //ourBank.AddAccount(2)
+                                                                              
                                         ourBank.AddAccount(2, a2);
                                         break;
                                     }
                                 case "quit":
                                     test3 = false;
                                     break;
-
-                            }
-
+                           }
 
                         }
                         break;
-
-
                     case "quit":
                         test = false;
                         break;
