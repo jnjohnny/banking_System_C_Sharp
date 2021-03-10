@@ -53,7 +53,7 @@ namespace lab_assignment
             accountNumber = acn;
             Console.WriteLine("Your Account No :  " + accountNumber + "\n");
             acn++;
-            return 0;
+            return acn;
         }
 
         public void PrintDOB()
