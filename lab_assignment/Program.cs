@@ -67,7 +67,6 @@ namespace lab_assignment
                                 case "deposit":
                                     {
                                         ourBank.Transaction(1);
-
                                         break;
                                     }
 
